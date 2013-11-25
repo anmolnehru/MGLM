@@ -38,3 +38,7 @@ shared/legr_dti sub_1/exp_1 totalresults/exp_1 shared
 
 3) After you migrate the existing code to github I will start getting the basic input/output features coded in C++ in that github project
 
+
+nifti c library
+
+http://niftilib.sourceforge.net/
