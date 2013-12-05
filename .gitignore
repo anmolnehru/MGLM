@@ -1,7 +1,5 @@
 # Temp files
 *~
 
-# mat files
-*.mat
-
-# test
+# No versioning directory
+versioning/
