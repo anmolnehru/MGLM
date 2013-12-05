@@ -1,6 +1,6 @@
 % shared job code
 load('data');
-load('idx_odf.mat');
+load('idx_odf_test.mat');
 % exp_name
 % X
 % mxstack
