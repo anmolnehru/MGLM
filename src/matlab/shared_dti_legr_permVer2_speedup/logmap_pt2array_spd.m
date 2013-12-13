@@ -9,7 +9,7 @@ invg = inv(g);
 
 
 %% For each data
-for
+for i = 1:size(X,3)
     if norm(P-X) < 1e-18
         v = zeros(size(P));
         return 
