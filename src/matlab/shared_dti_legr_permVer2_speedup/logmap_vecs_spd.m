@@ -9,7 +9,7 @@ if size(X,3) ==1
         V(:,:,i) = logmap_spd(X,yi);
     end
 else
-    for i = 1:size(P,3)
+    for i = 1:size(X,3)
         xi = X(:,:,i);
         yi = Y(:,:,i);
         V(:,:,i) = logmap_spd(xi,yi);
