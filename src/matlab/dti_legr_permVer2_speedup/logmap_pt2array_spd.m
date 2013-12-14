@@ -16,7 +16,7 @@ for i = 1:size(X,3)
         continue
     end
     y = invg*X(:,:,i)*invg';
-    [V S] = eig(y);
-    H = g*V;
+    [U S] = eig(y);
+    H = g*U;
     V(:,:,i) = H*diag(log(diag(S)))*H';
 end
