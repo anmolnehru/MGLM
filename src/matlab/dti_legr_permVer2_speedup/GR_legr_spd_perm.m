@@ -31,12 +31,8 @@ function ErrMx = GR_legr_spd_perm(X, Y,idx_dti, varargin)
 
 %% Optimize this part
 %% Error calculation
-ErrMx = zeros(1,nperms);
-
-for iperm =1:nperms
-    
-    E = 0 ;
-    for i = 1:ndata
-        E = E + dist_M_pt2array_spd(Y_hat(:,:,i),Y(:,:,i))^2;
-    end
+ErrMx = zeros(ndata,nperms);
+for idata =1:ndata
+    ErrMx(idata,:) = dist_M_pt2array_spd(Y(:, :, idata), squeeze(Yhat_perm(:,:,idata,:)));
 end
+ErrMx = sum(ErrMx,1);
