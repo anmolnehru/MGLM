@@ -16,7 +16,10 @@ Vnew = zeros(3,3, nmx);
 %    step 1 (common)
 %    v = [Sxx Sxy Sxz Syy Syz Szz]';    
 w = [1  sqrt(2) sqrt(2)   1 sqrt(2) 1]';
-sqrtp= sqrtm(p);
+%sqrtp= sqrtm(p);
+[U D] = eig(p);
+sqrtp = U*diag(sqrt(diag(D)))*U'; % faster sqrtm in matlab
+
 V = V./repmat(w,1,nmx);
 
 %    step 2 (room for speed up)
