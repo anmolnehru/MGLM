@@ -1,0 +1,490 @@
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp:36:1: warning: missing terminating " character [enabled by default]
+../src/legr_core.cpp:36:1: error: missing terminating " character
+make: *** [src/legr_core.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:40:23: error: ‘arma::imat’ has no member named ‘nrows’
+make: *** [src/legr_core.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:40:23: error: ‘arma::imat’ has no member named ‘nrows’
+make: *** [src/legr_core.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:44:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:47:10: error: missing template arguments before ‘cb’
+../src/legr_core.cpp:47:10: error: expected ‘;’ before ‘cb’
+../src/legr_core.cpp:43:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+make: *** [src/legr_core.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:43:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:47:10: error: conflicting declaration ‘arma::cube Ys’
+../src/legr_core.cpp:25:9: error: ‘Ys’ has a previous declaration as ‘arma::mat Ys’
+../src/legr_core.cpp:47:26: error: missing template arguments before ‘(’ token
+../src/legr_core.cpp:43:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+make: *** [src/legr_core.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:47:10: error: conflicting declaration ‘arma::cube Ys’
+../src/legr_core.cpp:25:9: error: ‘Ys’ has a previous declaration as ‘arma::mat Ys’
+../src/legr_core.cpp:47:19: error: expected type-specifier
+../src/legr_core.cpp:43:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+make: *** [src/legr_core.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:48:22: error: ‘nsubjects’ cannot appear in a constant-expression
+../src/legr_core.cpp:48:31: error: template argument 3 is invalid
+../src/legr_core.cpp:48:34: error: invalid type in declaration before ‘;’ token
+../src/legr_core.cpp:43:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+../src/legr_core.cpp:48:33: warning: unused variable ‘Y’ [-Wunused-variable]
+make: *** [src/legr_core.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:43:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:43:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:64:3: error: expected ‘;’ before ‘Y’
+../src/legr_core.cpp:50:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+make: *** [src/legr_core.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:50:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+Building file: ../src/legr_core.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/legr_core.d" -MT"src/legr_core.d" -o "src/legr_core.o" "../src/legr_core.cpp"
+../src/legr_core.cpp: In function ‘int main(int, char**)’:
+../src/legr_core.cpp:50:9: warning: unused variable ‘nvoxels’ [-Wunused-variable]
+Finished building: ../src/legr_core.cpp
+ 
+Building target: legr_core
+Invoking: GCC C++ Linker
+g++  -o "legr_core"  ./src/legr_core.o   -larmadillo
+Finished building target: legr_core
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project legr_core ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
