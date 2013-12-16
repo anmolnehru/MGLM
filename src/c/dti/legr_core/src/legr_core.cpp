@@ -71,13 +71,20 @@ int main(int argc, char** argv)
 
     cout << "Y "<<endl;
     cout << Y <<endl;
+    mat A = randu<mat>(3,3);
+
+    cout <<"Original A" <<endl;
+    cout <<A<<endl;
+    A = A.t();
+    cout << "Transposed A" << endl;
+    cout << A << endl;
 
     vec eigval;
     mat eigvec;
     eig_sym(eigval, eigvec, Y.slice(0));
-    cout << eigval<< endl;
-    cout << eigvec<< endl;
-    cout << Y.slice(0)<< endl;
+//    cout << eigval<< endl;
+//    cout << eigvec<< endl;
+//    cout << Y.slice(0)<< endl;
 
 
 
