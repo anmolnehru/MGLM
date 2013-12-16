@@ -1,0 +1,50 @@
+//============================================================================
+// Name        : legr_core.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+#include <iostream>
+#include <armadillo>
+
+using namespace std;
+using namespace arma;
+
+int main(int argc, char** argv)
+{
+
+	// Let's consider binary file read and write later
+	mat X;
+
+	X.load("X_arma.mat",raw_ascii);
+	cout << "X" << endl;
+	cout << X << endl;
+
+    mat Ys;
+    Ys.load("Ys_arma.mat",raw_ascii);
+    cout << "Ys"<< endl;
+    cout << Ys << endl;
+
+    imat idx_dti;
+    idx_dti.load("idx_dti_test_int_arma.mat",raw_ascii);
+    cout <<"IDX DTI" <<endl;
+    cout << idx_dti << endl;
+
+    imat mask_job;
+    mask_job.load("mask_job_arma.mat",raw_ascii);
+    cout << "mask_job"<< endl;
+    cout << mask_job << endl;
+
+    cout  << "mask_job.nrows" <<endl;
+    cout  << mask_job.nrows <<endl;
+
+    // Reshape matrix
+
+	//  mat A = randu<mat>(4,5);
+	//  mat B = randu<mat>(4,5);
+	//
+	//  cout << A*B.t() << endl;
+
+  return 0;
+}
