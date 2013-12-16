@@ -1,0 +1,29 @@
+/*
+ * spd_funcs.h
+ *
+ *  Created on: Dec 16, 2013
+ *      Author: hyunwoo
+ */
+#include <iostream>
+#include <armadillo>
+using namespace arma;
+using namespace std;
+
+#ifndef SPD_FUNCS_H_
+#define SPD_FUNCS_H_
+mat expmap_spd(const mat & P, const mat& X){
+	mat exp_p_x;
+    if( norm(X,2) < 1e-18){
+    	exp_p_x = P;
+    	return exp_p_x;
+    }
+    vec D;
+    mat U;
+    eig_sym(D, U, P);
+
+	return exp_p_x;
+}
+
+
+
+#endif /* SPD_FUNCS_H_ */

@@ -1,4 +1,4 @@
-function [xbar xbar_history] = karcher_mean_spd(X, W, niter)
+function xbar = karcher_mean_spd(X, W, niter)
 % KARCHER_MEAN calculates weighted means on d-sphere.
 % W is weight
 % X is column vectors
@@ -8,12 +8,12 @@ xbar = X(:,:,1);
 % Even weights or Weight normalization.
 % r = 1; % learning rate 
 
-xbar_history(:,:,1) = xbar;
+%xbar_history(:,:,1) = xbar;
 if isempty(W)
     for iter = 1:niter
         phi = mean(logmap_pt2array_spd(xbar,X),3);
         xbar = expmap_spd(xbar, phi);
-        xbar_history(:,:,iter+1) = xbar;
+%        xbar_history(:,:,iter+1) = xbar;
         if norm(phi) < 1e-10
             break
         end
@@ -27,7 +27,7 @@ else
         end
         phi = mean(wtmp,3);
         xbar = expmap_spd(xbar, phi);
-        xbar_history(:,:,iter+1) = xbar;
+%        xbar_history(:,:,iter+1) = xbar;
         if norm(phi) < 1e-10
             break
         end
