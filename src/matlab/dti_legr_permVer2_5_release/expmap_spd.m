@@ -8,7 +8,9 @@ function exp_p_x = expmap_spd(P,X)
     end
     [U D] = eig(P);
     g = U*sqrt(D);
-    invg = inv(g);
+%    invg = inv(g);
+    invg = diag(1./sqrt(diag(D)))*U'; % 1.3 X faster
+    
     Y = invg*X*invg';
     [V S] = eig(Y);
     gv = g*V;

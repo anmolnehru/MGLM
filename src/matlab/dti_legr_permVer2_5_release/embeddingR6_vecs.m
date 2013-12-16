@@ -15,13 +15,16 @@ elseif length(size(V)) == 3
     S = zeros(size(V));
     w = [1  sqrt(2) sqrt(2)   1 sqrt(2) 1]';
     %    step 1 (common)
-    try
-        invp = inv(p);
-    catch
-        invp = pinv(p);
-        disp('pinv');
-    end
-    sqrtinvp= sqrtm(invp);
+    [U D] = eig(p);
+    sqrtinvp = U*diag(1./sqrt(diag(D)))*U'; % 1.3 X faster
+    
+%     try
+%         invp = inv(p);
+%     catch
+%         invp = pinv(p);
+%         disp('pinv');
+%     end
+%     sqrtinvp= sqrtm(invp);
     
     %    step 2    
     % For each data set

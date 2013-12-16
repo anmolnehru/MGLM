@@ -7,8 +7,8 @@ function exp_p_x = expmap_pt2array_spd(p, X)
     % Step 1 common step
     [U D] = eig(p);
     g = U*sqrt(D);
-    invg = inv(g);
-    
+%    invg = inv(g);
+    invg = diag(1./sqrt(diag(D)))*U'; % 1.3 X faster    
     exp_p_x = zeros(size(X));
 
     % For each data

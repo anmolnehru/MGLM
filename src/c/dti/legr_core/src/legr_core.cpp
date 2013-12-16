@@ -72,6 +72,12 @@ int main(int argc, char** argv)
     cout << "Y "<<endl;
     cout << Y <<endl;
 
+    vec eigval;
+    mat eigvec;
+    eig_sym(eigval, eigvec, Y.slice(0));
+    cout << eigval<< endl;
+    cout << eigvec<< endl;
+    cout << Y.slice(0)<< endl;
 
 
 
