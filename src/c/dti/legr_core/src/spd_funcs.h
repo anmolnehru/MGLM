@@ -57,7 +57,7 @@ void logmap_pt2array_spd(cube& V, const mat& p,const cube& X){
 	mat U;
 	mat g,invg;
 	get_g_invg(g, invg, p);
-	int i=0;
+	unsigned int i=0;
 	mat tmp(3,3);
 	mat Y;
 	mat H;
@@ -78,7 +78,7 @@ void logmap_pt2array_spd(cube& V, const mat& p,const cube& X){
  * Arithmetic mean of matrices in cube.
  */
 mat mean_cube(const cube& X){
-	int i = 0;
+	unsigned int i = 0;
 	mat mV;
 	mV = mV.zeros();
 	for(i=0; i<X.n_slices; i++){
@@ -109,11 +109,12 @@ void karcher_mean_spd(mat& xbar, const cube& X, const int niter){
  */
 void embeddingR6_vecs(mat& Vnew, cube& S, const mat& p, const cube& V){
 	int nmx = V.n_slices;
-	static const vec w(6);
-	w(0)= 1; w(1) = sqrt(2); w(2) = sqrt(3);
-	w(3)= 1; w(4) = sqrt(2); w(5) = 1;
-	int i;
+	vec w(6);
+	w[0] = 1.;
+	w[1] = sqrt(2); w[2] = sqrt(3);
+	w[3]= 1; w[4] = sqrt(2); w[5] = 1;
 
+	int i;
 	mat U;
 	vec d;
 	eig_sym(d,U,p);
@@ -132,36 +133,61 @@ void embeddingR6_vecs(mat& Vnew, cube& S, const mat& p, const cube& V){
 	}
 }
 
-void invembeddingR6_vecs(cube& Vnew, const mat& p,const mat& V){
-	int nmx = V.n_cols;
-	int i;
-	for(i=0;i < nmx;i++){
-
-	}
-}
 /*
  * Vectors 2 symmetric matrices.
  * M is a symmetric matrix.
  */
-void vec2symmx(cube& M, const mat& V){
+void invembeddingR6_vecs(cube& Vnew, const mat& p,const mat& V){
 	int nmx = V.n_cols;
 	int i;
-	static const vec w(6);
-	w(0)= 1; w(1) = sqrt(2); w(2) = sqrt(3);
-	w(3)= 1; w(4) = sqrt(2); w(5) = 1;
+	vec w(6);
+	w[0]= 1; w[1] = sqrt(2); w[2] = sqrt(3);
+	w[3]= 1; w[4] = sqrt(2); w[5] = 1;
+    mat U;
+    vec d;
+    mat sqrtp = U*diagmat(sqrt(d))*U.t();
 
 	for(i=0;i < nmx;i++){
-		M(0,0,i) = 1/w(0)*V(0,i);
-		M(0,1,i) = 1/w(1)*V(1,i);
-		M(1,0,i) = 1/w(1)*V(1,i);
-		M(0,2,i) = 1/w(2)*V(2,i);
-		M(2,0,i) = 1/w(2)*V(2,i);
-		M(1,1,i) = 1/w(3)*V(3,i);
-		M(1,2,i) = 1/w(4)*V(4,i);
-		M(2,1,i) = 1/w(4)*V(4,i);
-		M(2,2,i) = 1/w(5)*V(5,i);
+		Vnew(0,0,i) = 1/w(0)*V(0,i);
+		Vnew(0,1,i) = 1/w(1)*V(1,i);
+		Vnew(1,0,i) = 1/w(1)*V(1,i);
+		Vnew(0,2,i) = 1/w(2)*V(2,i);
+		Vnew(2,0,i) = 1/w(2)*V(2,i);
+		Vnew(1,1,i) = 1/w(3)*V(3,i);
+		Vnew(1,2,i) = 1/w(4)*V(4,i);
+		Vnew(2,1,i) = 1/w(4)*V(4,i);
+		Vnew(2,2,i) = 1/w(5)*V(5,i);
+
+		Vnew.slice(i) = sqrtp*Vnew.slice(i)*sqrtp;
 	}
 }
+/*
+ * For speedup, we assume that most of variables are allocated outside of the function.
+ * It allows us to minimize the number of dynamic allocation.
+ */
+void dist_M_pt2array(vec& distvec, const mat& x, const cube& Y){
+	mat sqrtmx;
+    vec d;
+    mat U;
+    eig_sym(d, U, x);
+    mat D = diagmat(1/sqrt(d));
+    sqrtmx = U*D*U.t();
+    unsigned int i;
+    unsigned int nmx = Y.n_slices;
+    for(i=0; i<nmx; i++){
+    	eig_sym(d,U, sqrtmx*Y.slice(i)*sqrtmx);
+    	distvec[i]= sum(sum(pow(log(d),2))); // Doubt about the data type of return from pow function.
+    }
+}
 
+/*
+ * Index is a row vector. The type is a submatrix of a matrix
+ */
+void mxpermute(mat& Xperm,const mat& X, vec idx){
+	unsigned int i;
+	for(i=0; i < idx.n_cols; i++){
+		Xperm.row(idx(0,i)) = X.row(i);
+	}
+}
 
 #endif /* SPD_FUNCS_H_ */

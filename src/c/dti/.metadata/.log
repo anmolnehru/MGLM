@@ -115,3 +115,6 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: 58
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+
+!ENTRY org.eclipse.core.resources 4 376 2013-12-16 16:57:46.638
+!MESSAGE Marker id 1028 not found.

@@ -7,6 +7,9 @@
 //============================================================================
 #include <iostream>
 #include <armadillo>
+#include "spd_funcs.h"
+#include "gr_spd.h"
+
 #define DIM_DTI 6
 // Index of elements in save files
 #define iDxx 0

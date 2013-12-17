@@ -13,10 +13,11 @@ function d = dist_M_pt2array_spd(x,Y)
     invg = U*diag(1./sqrt(diag(D)))*U';
     
     d = zeros(1,size(Y,3));
+    
     % For each y
     for i =1:size(Y,3)
         [U D ] = eig(invg*Y(:,:,i)*invg);
-        d(i) = sum(diag(log(D)).^2);
+        d(i) = sum(log(diag(D)).^2);
 %        d(i) = sqrt(sum(diag(log(D)).^2));
     end
 
