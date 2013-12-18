@@ -27,67 +27,36 @@ int main(int argc, char** argv)
 
 	// Let's consider binary file read and write later
 	mat X;
-
 	X.load("X_arma.mat",raw_ascii);
-	cout << "X" << endl;
-	cout << X << endl;
 
-    mat Ys;
-    Ys.load("Ys_arma.mat",raw_ascii);
-    cout << "Ys"<< endl;
-    cout << Ys << endl;
+    mat Yv;
+    Yv.load("Ys_arma.mat",raw_ascii);
+    // Convert into cube
+    unsigned int nsubjects = Yv.n_cols;
+    cube Y(3,3,nsubjects);
 
     imat idx_dti;
     idx_dti.load("idx_dti_test_int_arma.mat",raw_ascii);
-    cout <<"IDX DTI" <<endl;
-    cout << idx_dti << endl;
+    unsigned int nperms = idx_dti.n_rows;
 
     imat mask_job;
     mask_job.load("mask_job_arma.mat",raw_ascii);
-    cout << "mask_job"<< endl;
-    cout << mask_job << endl;
+    unsigned int nvoxels = mask_job.n_rows;
+    nvoxels=1;
 
-    cout  << "mask_job.n_rows" <<endl;
-    cout  << mask_job.n_rows <<endl;
-
-    int nvoxels = mask_job.n_rows;
-    int nsubjects = Ys.n_cols;
-    cout << "nsubjects" << endl;
-    cout << nsubjects <<endl;
-
-
+    mat ErrMx(nvoxels, nperms);
+    ErrMx = ErrMx.zeros();
     // Extract one voxel and reshape
-    cube Y(3,3,nsubjects);
-    int isubj=0;
-    int startrow = 0;
-    for(isubj=0; isubj < nsubjects; isubj++){
-    	Y(0,0,isubj) = Ys(startrow+iDxx,isubj);
-		Y(0,1,isubj) = Ys(startrow+iDxy,isubj);
-		Y(0,2,isubj) = Ys(startrow+iDxz,isubj);
-		Y(1,0,isubj) = Ys(startrow+iDxy,isubj);
-		Y(1,1,isubj) = Ys(startrow+iDyy,isubj);
-		Y(1,2,isubj) = Ys(startrow+iDyz,isubj);
-		Y(2,0,isubj) = Ys(startrow+iDxz,isubj);
-		Y(2,1,isubj) = Ys(startrow+iDyz,isubj);
-		Y(2,2,isubj) = Ys(startrow+iDzz,isubj);
+    unsigned int ivoxel;
+    for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
+    	getY(Y,Yv,ivoxel);
+    	cout<<Y<<endl;
+    	GR_legr_spd_perm(ErrMx, X, Y, idx_dti,ivoxel);
     }
 
-    cout << "Y "<<endl;
-    cout << Y <<endl;
-    mat A = randu<mat>(3,3);
+    cout << ErrMx <<endl;
 
-    cout <<"Original A" <<endl;
-    cout <<A<<endl;
-    A = A.t();
-    cout << "Transposed A" << endl;
-    cout << A << endl;
 
-    vec eigval;
-    mat eigvec;
-    eig_sym(eigval, eigvec, Y.slice(0));
-//    cout << eigval<< endl;
-//    cout << eigvec<< endl;
-//    cout << Y.slice(0)<< endl;
 
 
 
