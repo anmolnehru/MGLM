@@ -9,38 +9,64 @@ using namespace std;
  *  Explicit allocation need here.
  *  X is centered.
  */
-void GR_legr_spd_perm(vec& ErrMx, const mat& X, const cube& Y, const mat & idx_dti){
+void GR_legr_spd_perm(mat& ErrMx, const mat& X, const cube& Y, const imat & idx_dti, unsigned ithvox){
 
 	unsigned int ndata = X.n_cols;
 	unsigned int nperms = idx_dti.n_rows;
 	unsigned int niter = 100;
-	unsigned int ndimx = X.n_rows;
+
+
 
 	mat p(3,3);
 	karcher_mean_spd(p, Y, niter);
+	cout << "Karcher mean" <<endl;
+	cout << p <<endl;
 
 	cube logY(3,3,ndata);
 	logmap_pt2array_spd(logY, p, Y);
+	cout << "LogY" <<endl;
+	cout << logY <<endl;
 
 	mat Yv(6,ndata);
 	cube S(3,3,ndata);
 
 	embeddingR6_vecs(Yv, S, p, logY);
-	cube Yhat_perm(3,3,ndata);
+	cube logYvhat_perm(6,ndata,nperms);
+
+	cout <<"Yv" <<endl;
+	cout << Yv <<endl;
 	unsigned int iperm;
 
-	mat Xc(ndimx, ndata);
+	mat Xc(X.n_rows, X.n_cols);
+
 	mat L;
 	mat logYv_hat(6,ndata);
 	cube V_hat(3,3,ndata);
+
+
 	for(iperm=0; iperm < nperms; iperm++){
-		mxpermute(Xc,X, idx_dti.row(iperm));
+
+		cout << "mxpermu" <<endl;
+		mxpermute(Xc, X, idx_dti, iperm);
+
 		//    A \ B	  	solve(A,B)
-		L = solve(Yv.t(),Xc.t()).t();
-		logYv_hat = L*Xc;
-
-
+		L = solve(Xc.t(),Yv.t());
+		if(iperm == 0){
+			cout << "Xc"<<endl;
+			cout <<  Xc <<endl;
+			cout << "L" <<endl;
+			cout <<  L.t()  <<endl;
+		}
+		logYv_hat = L.t()*Xc;
+		logYvhat_perm.slice(iperm) = logYv_hat;
 	}
+
+	// Check distance
+    unsigned int idata;
+    for(idata =0; idata <ndata;idata++){
+    	dist_M_pt2array(ErrMx, Y, logYvhat_perm, idata, ithvox);
+    }
+
 
 
 

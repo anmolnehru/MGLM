@@ -79,7 +79,7 @@ void logmap_pt2array_spd(cube& V, const mat& p,const cube& X){
  */
 mat mean_cube(const cube& X){
 	unsigned int i = 0;
-	mat mV;
+	mat mV(X.n_rows,X.n_cols);
 	mV = mV.zeros();
 	for(i=0; i<X.n_slices; i++){
 		mV += X.slice(i);
@@ -92,9 +92,13 @@ mat mean_cube(const cube& X){
  */
 void karcher_mean_spd(mat& xbar, const cube& X, const int niter){
 	int iter =0;
-	cube V;
+	cube V(X.n_rows, X.n_cols, X.n_slices);
+
 	xbar = X.slice(0);
-	mat phi;
+	mat phi(3,3);
+
+	cout << X << endl;
+	cout << xbar << endl;
 
     for(iter=0; iter < niter; iter++){
     	logmap_pt2array_spd(V, xbar, X);
@@ -110,8 +114,8 @@ void karcher_mean_spd(mat& xbar, const cube& X, const int niter){
 void embeddingR6_vecs(mat& Vnew, cube& S, const mat& p, const cube& V){
 	int nmx = V.n_slices;
 	vec w(6);
-	w[0] = 1.;
-	w[1] = sqrt(2); w[2] = sqrt(3);
+	w[0] = 1;
+	w[1] = sqrt(2); w[2] = sqrt(2);
 	w[3]= 1; w[4] = sqrt(2); w[5] = 1;
 
 	int i;
@@ -165,7 +169,68 @@ void invembeddingR6_vecs(cube& Vnew, const mat& p,const mat& V){
  * For speedup, we assume that most of variables are allocated outside of the function.
  * It allows us to minimize the number of dynamic allocation.
  */
-void dist_M_pt2array(vec& distvec, const mat& x, const cube& Y){
+void dist_M_pt2array(mat& ErrMx, const cube& Y, const cube& logYvhat_perm, unsigned int idata, unsigned int ithvox){
+
+	vec w(6);
+	w[0]= 1; w[1] = sqrt(2); w[2] = sqrt(2);
+	w[3]= 1; w[4] = sqrt(2); w[5] = 1;
+
+	mat sqrtmYi;
+    vec d;
+    mat U;
+    mat Yi = Y.slice(idata);
+    mat Yihat = Yi.zeros();
+
+    eig_sym(d, U, Yi);
+    mat D = diagmat(1/sqrt(d));
+    sqrtmYi = U*D*U.t();
+
+
+    unsigned int i;
+    unsigned int nperms = logYvhat_perm.n_slices;
+    for(i=0; i<nperms; i++){
+    	Yihat(0,0) = 1/w(0)*logYvhat_perm(0,idata,i);
+		Yihat(0,1) = 1/w(1)*logYvhat_perm(1,idata,i);
+		Yihat(1,0) = 1/w(1)*logYvhat_perm(1,idata,i);
+		Yihat(0,2) = 1/w(2)*logYvhat_perm(2,idata,i);
+		Yihat(2,0) = 1/w(2)*logYvhat_perm(2,idata,i);
+		Yihat(1,1) = 1/w(3)*logYvhat_perm(3,idata,i);
+		Yihat(1,2) = 1/w(4)*logYvhat_perm(4,idata,i);
+		Yihat(2,1) = 1/w(4)*logYvhat_perm(4,idata,i);
+		Yihat(2,2) = 1/w(5)*logYvhat_perm(5,idata,i);
+
+		if (i==0 && idata ==0 && ithvox ==0){
+			cout << "Yihat" <<endl;
+			cout << Yihat <<endl;
+		}
+    	eig_sym(d,U, Yi*Yihat*Yi);
+    	ErrMx(ithvox,i)+= sum(sum(pow(log(d),2))); // Doubt about the data type of return from pow function.
+    }
+}
+/*
+ * Extract Y matrices from concatenated vector forms of data.
+ */
+void getY(cube&Y, const mat&Yv,unsigned int ivoxel){
+	unsigned int start_idx = 6*ivoxel;
+	unsigned int nsubjects = Yv.n_cols;
+	unsigned int i;
+	for(i=0; i < nsubjects; i++){
+		Y(0,0,i) = Yv(start_idx,i);
+		Y(0,1,i) = Yv(start_idx+1,i);
+		Y(1,0,i) = Yv(start_idx+1,i);
+		Y(0,2,i) = Yv(start_idx+2,i);
+		Y(2,0,i) = Yv(start_idx+2,i);
+		Y(1,1,i) = Yv(start_idx+3,i);
+		Y(1,2,i) = Yv(start_idx+4,i);
+		Y(2,1,i) = Yv(start_idx+4,i);
+		Y(2,2,i) = Yv(start_idx+5,i);
+	}
+}
+
+/*
+ * Let's remove this function.
+ */
+void _dist_M_pt2array(vec& distvec, const mat& x, const cube& Y){
 	mat sqrtmx;
     vec d;
     mat U;
@@ -179,14 +244,15 @@ void dist_M_pt2array(vec& distvec, const mat& x, const cube& Y){
     	distvec[i]= sum(sum(pow(log(d),2))); // Doubt about the data type of return from pow function.
     }
 }
-
 /*
  * Index is a row vector. The type is a submatrix of a matrix
  */
-void mxpermute(mat& Xperm,const mat& X, vec idx){
+void mxpermute(mat& Xperm,const mat& X, const imat& idx, unsigned int iperm){
+
+
 	unsigned int i;
 	for(i=0; i < idx.n_cols; i++){
-		Xperm.row(idx(0,i)) = X.row(i);
+		Xperm.col(idx(iperm,i)-1) = X.col(i);
 	}
 }
 
