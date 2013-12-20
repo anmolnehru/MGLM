@@ -97,9 +97,6 @@ void karcher_mean_spd(mat& xbar, const cube& X, const int niter){
 	xbar = X.slice(0);
 	mat phi(3,3);
 
-	cout << X << endl;
-	cout << xbar << endl;
-
     for(iter=0; iter < niter; iter++){
     	logmap_pt2array_spd(V, xbar, X);
     	phi = mean_cube(V);
@@ -169,42 +166,56 @@ void invembeddingR6_vecs(cube& Vnew, const mat& p,const mat& V){
  * For speedup, we assume that most of variables are allocated outside of the function.
  * It allows us to minimize the number of dynamic allocation.
  */
-void dist_M_pt2array(mat& ErrMx, const cube& Y, const cube& logYvhat_perm, unsigned int idata, unsigned int ithvox){
+void dist_M_pt2array(mat& ErrMx, const mat&p, const mat& sqrtp, const mat& g, const mat& invg, const cube& Y, const cube& logYvhat_perm, unsigned int idata, unsigned int ithvox){
 
 	vec w(6);
 	w[0]= 1; w[1] = sqrt(2); w[2] = sqrt(2);
 	w[3]= 1; w[4] = sqrt(2); w[5] = 1;
 
-	mat sqrtmYi;
-    vec d;
-    mat U;
-    mat Yi = Y.slice(idata);
-    mat Yihat = Yi.zeros();
 
-    eig_sym(d, U, Yi);
-    mat D = diagmat(1/sqrt(d));
-    sqrtmYi = U*D*U.t();
+	mat Yvihat = zeros<mat>(3,3);
+	mat Yihat = zeros<mat>(3,3);
+	mat Z = zeros<mat>(3,3);
+	mat V = zeros<mat>(3,3);
+	vec s = zeros<vec>(3);
+	mat gV = zeros<mat>(3,3);
 
+	// idata
+	mat U = zeros<mat>(3,3);
+	vec d = zeros<vec>(3);
+	eig_sym(d,U,Y.slice(idata));
+	unsigned int i;
+	d = sqrt(d);
+	for(i=0;i<3;i++)d(i) = 1/d(i);
+	mat invg_Yi = U*diagmat(d)*U.t();
 
-    unsigned int i;
     unsigned int nperms = logYvhat_perm.n_slices;
-    for(i=0; i<nperms; i++){
-    	Yihat(0,0) = 1/w(0)*logYvhat_perm(0,idata,i);
-		Yihat(0,1) = 1/w(1)*logYvhat_perm(1,idata,i);
-		Yihat(1,0) = 1/w(1)*logYvhat_perm(1,idata,i);
-		Yihat(0,2) = 1/w(2)*logYvhat_perm(2,idata,i);
-		Yihat(2,0) = 1/w(2)*logYvhat_perm(2,idata,i);
-		Yihat(1,1) = 1/w(3)*logYvhat_perm(3,idata,i);
-		Yihat(1,2) = 1/w(4)*logYvhat_perm(4,idata,i);
-		Yihat(2,1) = 1/w(4)*logYvhat_perm(4,idata,i);
-		Yihat(2,2) = 1/w(5)*logYvhat_perm(5,idata,i);
+    unsigned iperm;
+    for(iperm=0; iperm<nperms; iperm++){
+    	// invembeddingR6_vecs
+    	Yvihat(0,0) = 1/w(0)*logYvhat_perm(0,idata,iperm);
+		Yvihat(0,1) = 1/w(1)*logYvhat_perm(1,idata,iperm);
+		Yvihat(1,0) = 1/w(1)*logYvhat_perm(1,idata,iperm);
+		Yvihat(0,2) = 1/w(2)*logYvhat_perm(2,idata,iperm);
+		Yvihat(2,0) = 1/w(2)*logYvhat_perm(2,idata,iperm);
+		Yvihat(1,1) = 1/w(3)*logYvhat_perm(3,idata,iperm);
+		Yvihat(1,2) = 1/w(4)*logYvhat_perm(4,idata,iperm);
+		Yvihat(2,1) = 1/w(4)*logYvhat_perm(4,idata,iperm);
+		Yvihat(2,2) = 1/w(5)*logYvhat_perm(5,idata,iperm);
 
-		if (i==0 && idata ==0 && ithvox ==0){
-			cout << "Yihat" <<endl;
-			cout << Yihat <<endl;
+		// Tangent vector
+		Z = sqrtp*Yvihat*sqrtp;
+		if(norm(Z,2) <1e-18){
+			Yihat = p;
+		}else{
+			// exponential map
+			Z = invg*Z*invg.t();
+			eig_sym(s,V,Z);
+			gV = g*V;
+			Yihat = gV*diagmat(exp(s))*gV.t();
 		}
-    	eig_sym(d,U, Yi*Yihat*Yi);
-    	ErrMx(ithvox,i)+= sum(sum(pow(log(d),2))); // Doubt about the data type of return from pow function.
+		eig_sym(s,V, invg_Yi*Yihat*invg_Yi.t());
+    	ErrMx(ithvox,iperm)+= sum(square(log(s))); // Doubt about the data type of return from pow function.
     }
 }
 /*
@@ -228,23 +239,6 @@ void getY(cube&Y, const mat&Yv,unsigned int ivoxel){
 }
 
 /*
- * Let's remove this function.
- */
-void _dist_M_pt2array(vec& distvec, const mat& x, const cube& Y){
-	mat sqrtmx;
-    vec d;
-    mat U;
-    eig_sym(d, U, x);
-    mat D = diagmat(1/sqrt(d));
-    sqrtmx = U*D*U.t();
-    unsigned int i;
-    unsigned int nmx = Y.n_slices;
-    for(i=0; i<nmx; i++){
-    	eig_sym(d,U, sqrtmx*Y.slice(i)*sqrtmx);
-    	distvec[i]= sum(sum(pow(log(d),2))); // Doubt about the data type of return from pow function.
-    }
-}
-/*
  * Index is a row vector. The type is a submatrix of a matrix
  */
 void mxpermute(mat& Xperm,const mat& X, const imat& idx, unsigned int iperm){
@@ -252,8 +246,16 @@ void mxpermute(mat& Xperm,const mat& X, const imat& idx, unsigned int iperm){
 
 	unsigned int i;
 	for(i=0; i < idx.n_cols; i++){
-		Xperm.col(idx(iperm,i)-1) = X.col(i);
+		Xperm.col(i) = X.col(idx(iperm,i)-1);
 	}
 }
 
+void sqrtm(mat& outmx,const mat& inmx){
+	mat U;
+	vec d;
+	eig_sym(d,U,inmx);
+	outmx = U*diagmat(sqrt(d))*U.t();
+}
+
 #endif /* SPD_FUNCS_H_ */
+

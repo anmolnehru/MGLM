@@ -2,7 +2,7 @@
 % shared job code
 %clear;
 load('data');
-load('idx_dti_test_100.mat');
+load('idx_dti_test.mat');
 
 
 disp('Data Loaded.')
