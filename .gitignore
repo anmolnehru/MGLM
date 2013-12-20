@@ -6,3 +6,6 @@ versioning/
 
 # No eclipse project files
 .metadata/
+
+# No swp
+*swp
