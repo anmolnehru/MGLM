@@ -3,7 +3,14 @@ MGLM
 
 MGLM on Riemannian manifolds
 
-11/15
+12/20
+
+NEWS!!!
+
+c++ code for DTI based on Armadillo takes 1 min 43 sec per voxel!
+40-50 times faster than unoptimzed matlab code.
+10 times faster than optized matlab code.
+
 
 1) ODF regression with smoothed ODFs will be started today
 
