@@ -20,15 +20,15 @@ for iROI=1:nROIs
 end
 
 save('Ys_arma.mat','Ys','-ascii');
-load idx_dti_test
-
 %%
-fid = fopen('idx_dti_test_int_arma.mat','w');
-for irow = 1:size(uidx_dti,1)
-    fprintf(fid, '%d ', uidx_dti(irow,:));
+load idx_dti
+fid = fopen('idx_dti_int_arma.mat','w');
+for irow = 1:size(idx_dti,1)
+    fprintf(fid, '%d ', idx_dti(irow,:));
     fprintf(fid,'\n');
 end
 fclose(fid);
+disp('done');
 %%
 for irow = size(uidx_dti,1)
     for icol = size(uidx_dti,2)

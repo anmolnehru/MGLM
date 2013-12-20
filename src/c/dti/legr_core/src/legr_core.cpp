@@ -36,13 +36,13 @@ int main(int argc, char** argv)
     cube Y(3,3,nsubjects);
 
     imat idx_dti;
-    idx_dti.load("idx_dti_test_int_arma.mat",raw_ascii);
+    idx_dti.load("idx_dti_int_arma.mat",raw_ascii);
     unsigned int nperms = idx_dti.n_rows;
 
     imat mask_job;
     mask_job.load("mask_job_arma.mat",raw_ascii);
     unsigned int nvoxels = mask_job.n_rows;
-    nvoxels=1;
+
 
     mat ErrMx(nvoxels, nperms);
     ErrMx = ErrMx.zeros();
@@ -50,16 +50,12 @@ int main(int argc, char** argv)
     unsigned int ivoxel;
     for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
     	getY(Y,Yv,ivoxel);
-    	cout<<Y<<endl;
+    	//cout<<Y<<endl;
     	GR_legr_spd_perm(ErrMx, X, Y, idx_dti,ivoxel);
     }
 
     cout << ErrMx <<endl;
-
-
-
-
-
+    //cout << idx_dti <<endl;
 
   return 0;
 }
