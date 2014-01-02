@@ -17,10 +17,11 @@ else
     W = W/norm(W,1);
     for iter = 1:niter
         tmp = logmap_pt2array_spd(xbar,X);
+        wtmp = zeros(size(tmp));
         for i = 1:size(tmp,3)
-            wtmp = W(i)*tmp(:,:,i);
+            wtmp(:,:,i) = W(i)*tmp(:,:,i);
         end
-        phi = mean(wtmp,3);
+        phi = sum(wtmp,3);
         xbar = expmap_spd(xbar, phi);
         if norm(phi) < 1e-10
             break
