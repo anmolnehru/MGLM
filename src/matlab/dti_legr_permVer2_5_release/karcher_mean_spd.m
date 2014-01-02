@@ -9,7 +9,7 @@ if isempty(W)
     for iter = 1:niter
         phi = mean(logmap_pt2array_spd(xbar,X),3);
         xbar = expmap_spd(xbar, phi);
-        if norm(phi) < 1e-10
+        if norm(phi) < 1e-18
             break
         end
     end
@@ -23,7 +23,7 @@ else
         end
         phi = sum(wtmp,3);
         xbar = expmap_spd(xbar, phi);
-        if norm(phi) < 1e-10
+        if norm(phi) < 1e-18
             break
         end
     end
