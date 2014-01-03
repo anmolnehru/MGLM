@@ -100,7 +100,7 @@ void karcher_mean_spd(mat& xbar, const cube& X, const int niter){
     for(iter=0; iter < niter; iter++){
     	logmap_pt2array_spd(V, xbar, X);
     	phi = mean_cube(V);
-    	if(norm(phi,2) < 1e-10)break;
+    	if(norm(phi,2) < 1e-18)break;
     	xbar = expmap_spd(xbar, phi);
     }
 }
