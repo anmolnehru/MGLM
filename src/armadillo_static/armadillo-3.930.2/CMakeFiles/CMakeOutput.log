@@ -1,0 +1,477 @@
+The system is: Linux - 3.11.0-14-generic - x86_64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/2.8.11.2/CompilerIdCXX/a.out"
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2314629939/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2314629939.dir/build.make CMakeFiles/cmTryCompileExec2314629939.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2314629939.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2314629939.dir/testCXXCompiler.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec2314629939
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2314629939.dir/link.txt --verbose=1
+/usr/bin/c++          CMakeFiles/cmTryCompileExec2314629939.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec2314629939 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1334643284/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1334643284.dir/build.make CMakeFiles/cmTryCompileExec1334643284.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec1334643284
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1334643284.dir/link.txt --verbose=1
+/usr/bin/c++        -v CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1334643284 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu/Linaro 4.8.1-10ubuntu9' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.1 (Ubuntu/Linaro 4.8.1-10ubuntu9) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1334643284' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec1334643284 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec1334643284/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec1334643284.dir/build.make CMakeFiles/cmTryCompileExec1334643284.dir/build]
+  ignore line: [make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec1334643284]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1334643284.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++        -v CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1334643284 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu/Linaro 4.8.1-10ubuntu9' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.1 (Ubuntu/Linaro 4.8.1-10ubuntu9) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1334643284' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec1334643284 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec1334643284] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [CMakeFiles/cmTryCompileExec1334643284.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the include file boost/date_time/posix_time/posix_time.hpp exists passed with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4124607251/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4124607251.dir/build.make CMakeFiles/cmTryCompileExec4124607251.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4124607251.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec4124607251.dir/CheckIncludeFile.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTryCompileExec4124607251
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4124607251.dir/link.txt --verbose=1
+/usr/bin/c++          CMakeFiles/cmTryCompileExec4124607251.dir/CheckIncludeFile.cxx.o  -o cmTryCompileExec4124607251 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_STD_ISFINITE succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3948560338/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3948560338.dir/build.make CMakeFiles/cmTryCompileExec3948560338.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3948560338.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_STD_ISFINITE   -o CMakeFiles/cmTryCompileExec3948560338.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3948560338
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3948560338.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_STD_ISFINITE    CMakeFiles/cmTryCompileExec3948560338.dir/src.cxx.o  -o cmTryCompileExec3948560338 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cmath>
+
+int main()
+  {
+  #if !defined(isfinite)
+    int i = (std::isfinite)(1.0);
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_STD_ISINF succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4275415468/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4275415468.dir/build.make CMakeFiles/cmTryCompileExec4275415468.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4275415468.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_STD_ISINF   -o CMakeFiles/cmTryCompileExec4275415468.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec4275415468
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4275415468.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_STD_ISINF    CMakeFiles/cmTryCompileExec4275415468.dir/src.cxx.o  -o cmTryCompileExec4275415468 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cmath>
+
+int main()
+  {
+  #if !defined(isinf)
+    int i = (std::isinf)(1.0);
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_STD_ISNAN succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3005813817/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3005813817.dir/build.make CMakeFiles/cmTryCompileExec3005813817.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3005813817.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_STD_ISNAN   -o CMakeFiles/cmTryCompileExec3005813817.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3005813817
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3005813817.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_STD_ISNAN    CMakeFiles/cmTryCompileExec3005813817.dir/src.cxx.o  -o cmTryCompileExec3005813817 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cmath>
+
+int main()
+  {
+  #if !defined(isnan)
+    int i = (std::isnan)(1.0);
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_LOG1P succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3967050380/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3967050380.dir/build.make CMakeFiles/cmTryCompileExec3967050380.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3967050380.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_LOG1P   -o CMakeFiles/cmTryCompileExec3967050380.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3967050380
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3967050380.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_LOG1P    CMakeFiles/cmTryCompileExec3967050380.dir/src.cxx.o  -o cmTryCompileExec3967050380 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cmath>
+
+int main()
+  {
+  #if !defined(log1p)
+    int i = (::log1p)(1.0);
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_STD_SNPRINTF succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec254361211/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec254361211.dir/build.make CMakeFiles/cmTryCompileExec254361211.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec254361211.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_STD_SNPRINTF   -o CMakeFiles/cmTryCompileExec254361211.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec254361211
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec254361211.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_STD_SNPRINTF    CMakeFiles/cmTryCompileExec254361211.dir/src.cxx.o  -o cmTryCompileExec254361211 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cstdio>
+
+int
+main()
+  {
+  #if !defined(snprintf)
+    int i = sizeof(&(std::snprintf));
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_GETTIMEOFDAY succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1620403962/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1620403962.dir/build.make CMakeFiles/cmTryCompileExec1620403962.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1620403962.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_GETTIMEOFDAY   -o CMakeFiles/cmTryCompileExec1620403962.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1620403962
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1620403962.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_GETTIMEOFDAY    CMakeFiles/cmTryCompileExec1620403962.dir/src.cxx.o  -o cmTryCompileExec1620403962 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <sys/time.h>
+
+int
+main()
+  {
+  #if !defined(gettimeofday)
+    int i = sizeof(&(::gettimeofday));
+  #endif
+  return 0;
+  }
+
+Determining if the include file boost/date_time/posix_time/posix_time.hpp exists passed with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3859353604/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3859353604.dir/build.make CMakeFiles/cmTryCompileExec3859353604.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3859353604.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec3859353604.dir/CheckIncludeFile.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTryCompileExec3859353604
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3859353604.dir/link.txt --verbose=1
+/usr/bin/c++          CMakeFiles/cmTryCompileExec3859353604.dir/CheckIncludeFile.cxx.o  -o cmTryCompileExec3859353604 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_STD_ISFINITE succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec97747227/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec97747227.dir/build.make CMakeFiles/cmTryCompileExec97747227.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec97747227.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_STD_ISFINITE   -o CMakeFiles/cmTryCompileExec97747227.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec97747227
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec97747227.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_STD_ISFINITE    CMakeFiles/cmTryCompileExec97747227.dir/src.cxx.o  -o cmTryCompileExec97747227 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cmath>
+
+int main()
+  {
+  #if !defined(isfinite)
+    int i = (std::isfinite)(1.0);
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_STD_ISINF succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2982686939/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2982686939.dir/build.make CMakeFiles/cmTryCompileExec2982686939.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2982686939.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_STD_ISINF   -o CMakeFiles/cmTryCompileExec2982686939.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2982686939
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2982686939.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_STD_ISINF    CMakeFiles/cmTryCompileExec2982686939.dir/src.cxx.o  -o cmTryCompileExec2982686939 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cmath>
+
+int main()
+  {
+  #if !defined(isinf)
+    int i = (std::isinf)(1.0);
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_STD_ISNAN succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3200946378/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3200946378.dir/build.make CMakeFiles/cmTryCompileExec3200946378.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3200946378.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_STD_ISNAN   -o CMakeFiles/cmTryCompileExec3200946378.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3200946378
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3200946378.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_STD_ISNAN    CMakeFiles/cmTryCompileExec3200946378.dir/src.cxx.o  -o cmTryCompileExec3200946378 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cmath>
+
+int main()
+  {
+  #if !defined(isnan)
+    int i = (std::isnan)(1.0);
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_LOG1P succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3182951149/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3182951149.dir/build.make CMakeFiles/cmTryCompileExec3182951149.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3182951149.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_LOG1P   -o CMakeFiles/cmTryCompileExec3182951149.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3182951149
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3182951149.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_LOG1P    CMakeFiles/cmTryCompileExec3182951149.dir/src.cxx.o  -o cmTryCompileExec3182951149 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cmath>
+
+int main()
+  {
+  #if !defined(log1p)
+    int i = (::log1p)(1.0);
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_STD_SNPRINTF succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2188192508/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2188192508.dir/build.make CMakeFiles/cmTryCompileExec2188192508.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2188192508.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_STD_SNPRINTF   -o CMakeFiles/cmTryCompileExec2188192508.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2188192508
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2188192508.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_STD_SNPRINTF    CMakeFiles/cmTryCompileExec2188192508.dir/src.cxx.o  -o cmTryCompileExec2188192508 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <cstdio>
+
+int
+main()
+  {
+  #if !defined(snprintf)
+    int i = sizeof(&(std::snprintf));
+  #endif
+  return 0;
+  }
+
+Performing C++ SOURCE FILE Test ARMA_HAVE_GETTIMEOFDAY succeded with the following output:
+Change Dir: /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2863969959/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2863969959.dir/build.make CMakeFiles/cmTryCompileExec2863969959.dir/build
+make[1]: Entering directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2863969959.dir/src.cxx.o
+/usr/bin/c++    -DARMA_HAVE_GETTIMEOFDAY   -o CMakeFiles/cmTryCompileExec2863969959.dir/src.cxx.o -c /home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2863969959
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2863969959.dir/link.txt --verbose=1
+/usr/bin/c++      -DARMA_HAVE_GETTIMEOFDAY    CMakeFiles/cmTryCompileExec2863969959.dir/src.cxx.o  -o cmTryCompileExec2863969959 -rdynamic 
+make[1]: Leaving directory `/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <sys/time.h>
+
+int
+main()
+  {
+  #if !defined(gettimeofday)
+    int i = sizeof(&(::gettimeofday));
+  #endif
+  return 0;
+  }
+
