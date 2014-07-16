@@ -1,8 +1,9 @@
 /*
  * spd_funcs.h
  *
- *  Created on: Dec 16, 2013
- *      Author: hyunwoo
+ *  Created on: Jan 08, 2014
+ *      Author: Hyunwoo
+ *
  */
 #include <iostream>
 #include <armadillo>
