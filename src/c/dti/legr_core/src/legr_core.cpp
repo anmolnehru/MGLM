@@ -26,8 +26,8 @@ int main(int argc, char** argv)
 {
 
 	// Let's consider binary file read and write later
-	mat X;
-	X.load("X_arma.mat",raw_ascii);
+    mat X;
+    X.load("Xs_arma.mat",raw_ascii);
 
     mat Yv;
     Yv.load("Ys_arma.mat",raw_ascii);
@@ -36,7 +36,7 @@ int main(int argc, char** argv)
     cube Y(3,3,nsubjects);
 
     imat idx_dti;
-    idx_dti.load("idx_dti_int_arma.mat",raw_ascii);
+    idx_dti.load("idx_dti_arma.mat",raw_ascii);
     unsigned int nperms = idx_dti.n_rows;
 
     imat mask_job;
@@ -54,8 +54,7 @@ int main(int argc, char** argv)
     	GR_legr_spd_perm(ErrMx, X, Y, idx_dti,ivoxel);
     }
 
-    cout << ErrMx <<endl;
-    //cout << idx_dti <<endl;
+    ErrMx.save("result.mat",raw_ascii);
 
   return 0;
 }

@@ -1,8 +1,9 @@
 /*
  * spd_funcs.h
  *
- *  Created on: Dec 16, 2013
- *      Author: hyunwoo
+ *  Created on: Jan 08, 2014
+ *      Author: Hyunwoo
+ *
  */
 #include <iostream>
 #include <armadillo>
@@ -107,6 +108,7 @@ void karcher_mean_spd(mat& xbar, const cube& X, const int niter){
 
 /*
  * S is a memory pool to avoid frequent dynamic memory allocation for speed up.
+ * Need to be checked.
  */
 void embeddingR6_vecs(mat& Vnew, cube& S, const mat& p, const cube& V){
 	int nmx = V.n_slices;
@@ -121,7 +123,9 @@ void embeddingR6_vecs(mat& Vnew, cube& S, const mat& p, const cube& V){
 	eig_sym(d,U,p);
 
 	mat sqrtinvp;
-	sqrtinvp = U*diagmat(1./sqrt(d))*U.t();
+	d = sqrt(d);
+	for(i=0;i<3;i++)d(i) = 1/d(i);
+	sqrtinvp = U*diagmat(d)*U.t();
 
 	for(i=0;i<nmx;i++){
 		S.slice(i) = sqrtinvp*V.slice(i)*sqrtinvp;
