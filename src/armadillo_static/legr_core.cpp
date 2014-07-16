@@ -30,7 +30,18 @@ int main(int argc, char** argv)
     X.load("Xs_arma.mat",raw_ascii);
 
     mat Yv;
-    Yv.load("Ys_arma.mat",raw_ascii);
+    string input_dir="";
+    string output_dir="";
+    if(argc > 1){
+        input_dir = argv[1];
+    }
+    if(argc == 3){
+        output_dir = argv[2];
+    }else{
+        output_dir = input_dir;
+    }
+    cout << "Input : "+ input_dir+"Ys_arma.mat" <<endl;
+    Yv.load(input_dir+"Ys_arma.mat",raw_ascii);
     // Convert into cube
     unsigned int nsubjects = Yv.n_cols;
     cube Y(3,3,nsubjects);
@@ -40,7 +51,7 @@ int main(int argc, char** argv)
     unsigned int nperms = idx_dti.n_rows;
 
     imat mask_job;
-    mask_job.load("mask_job_arma.mat",raw_ascii);
+    mask_job.load(input_dir+"mask_job_arma.mat",raw_ascii);
     unsigned int nvoxels = mask_job.n_rows;
 
 
@@ -54,7 +65,7 @@ int main(int argc, char** argv)
     	GR_legr_spd_perm(ErrMx, X, Y, idx_dti,ivoxel);
     }
 
-    ErrMx.save("result.mat",raw_ascii);
-
+    ErrMx.save(output_dir+"result.mat",raw_ascii);
+    cout << "Output : "+ output_dir+"Ys_arma.mat" <<endl;
   return 0;
 }
