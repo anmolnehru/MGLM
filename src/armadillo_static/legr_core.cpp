@@ -1,12 +1,17 @@
 //============================================================================
 // Name        : legr_core.cpp
-// Author      : 
-// Version     :
+// Author      : Hyunwoo J. Kim
+// Version     : 0.1
+// Date        : 07.16.2014
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 #include <iostream>
 #include <armadillo>
+#include <boost/filesystem.hpp> 
+#include <boost/filesystem/operations.hpp>
+#include <boost/filesystem/path.hpp>
+
 #include "spd_funcs.h"
 #include "gr_spd.h"
 
@@ -21,6 +26,7 @@
 
 using namespace std;
 using namespace arma;
+namespace fs=boost::filesystem;
 
 int main(int argc, char** argv)
 {
@@ -29,9 +35,13 @@ int main(int argc, char** argv)
     mat X;
     X.load("Xs_arma.mat",raw_ascii);
 
+    fs::path cur_dir(fs::current_path());
+    cout << "Current directory : " << cur_dir <<endl;
+
     mat Yv;
-    string input_dir="";
-    string output_dir="";
+    fs::path input_dir;
+    fs::path output_dir;
+
     if(argc > 1){
         input_dir = argv[1];
     }
@@ -40,8 +50,10 @@ int main(int argc, char** argv)
     }else{
         output_dir = input_dir;
     }
-    cout << "Input : "+ input_dir+"Ys_arma.mat" <<endl;
-    Yv.load(input_dir+"Ys_arma.mat",raw_ascii);
+
+    fs::path Yname = "Ys_arma.mat";
+    cout << "Input : "+ (input_dir/Yname).string() <<endl;
+    Yv.load((input_dir/Yname).string(),raw_ascii);
     // Convert into cube
     unsigned int nsubjects = Yv.n_cols;
     cube Y(3,3,nsubjects);
@@ -51,7 +63,8 @@ int main(int argc, char** argv)
     unsigned int nperms = idx_dti.n_rows;
 
     imat mask_job;
-    mask_job.load(input_dir+"mask_job_arma.mat",raw_ascii);
+    fs::path maskname = "mask_job_arma.mat";
+    mask_job.load((input_dir/maskname).string(),raw_ascii);
     unsigned int nvoxels = mask_job.n_rows;
 
 
@@ -64,8 +77,12 @@ int main(int argc, char** argv)
     	//cout<<Y<<endl;
     	GR_legr_spd_perm(ErrMx, X, Y, idx_dti,ivoxel);
     }
-
-    ErrMx.save(output_dir+"result.mat",raw_ascii);
-    cout << "Output : "+ output_dir+"Ys_arma.mat" <<endl;
+    if (!fs::exists(output_dir)){
+        cout<< "Not exists " << output_dir << endl;
+        fs::create_directory(output_dir);
+    }
+    fs::path resname = "result.mat";
+    ErrMx.save((output_dir/resname).string(),raw_ascii);
+    cout << "Output : "+ (output_dir/resname).string()<<endl;
   return 0;
 }
