@@ -24,6 +24,6 @@ nifti c library
 http://niftilib.sourceforge.net/
 
 
-#!/bin/bash
-# Excutable_file_path input_dir output_dir shared_dir
+\#!/bin/bash
+\# Excutable_file_path input_dir output_dir shared_dir
 shared/legr_dti sub_1/exp_1 totalresults/exp_1 shared
