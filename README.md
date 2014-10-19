@@ -22,3 +22,8 @@ c++ code for DTI based on Armadillo takes 1 min 43 sec per voxel!
 nifti c library
 
 http://niftilib.sourceforge.net/
+
+
+#!/bin/bash
+# Excutable_file_path input_dir output_dir shared_dir
+shared/legr_dti sub_1/exp_1 totalresults/exp_1 shared
