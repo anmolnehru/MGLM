@@ -31,26 +31,34 @@ namespace fs=boost::filesystem;
 int main(int argc, char** argv)
 {
 
+    fs::path input_dir;
+    fs::path output_dir;
+    fs::path shared_dir;
+
 	// Let's consider binary file read and write later
+    if(argc >= 2){
+        input_dir = argv[1];
+    }
+    if(argc >= 3){
+        output_dir = argv[2];
+    }else{
+        output_dir = input_dir;
+    }
+    if(argc >= 4){
+        shared_dir = argv[3];
+    }else{
+        shared_dir = "./";
+    }
+
     mat X;
-    X.load("Xs_arma.mat",raw_ascii);
+    fs::path Xname = "Xs_arma.mat";
+
+    X.load((shared_dir/Xname).string(), raw_ascii);
 
     fs::path cur_dir(fs::current_path());
     cout << "Current directory : " << cur_dir <<endl;
 
     mat Yv;
-    fs::path input_dir;
-    fs::path output_dir;
-
-    if(argc > 1){
-        input_dir = argv[1];
-    }
-    if(argc == 3){
-        output_dir = argv[2];
-    }else{
-        output_dir = input_dir;
-    }
-
     fs::path Yname = "Ys_arma.mat";
     cout << "Input : "+ (input_dir/Yname).string() <<endl;
     Yv.load((input_dir/Yname).string(),raw_ascii);
@@ -59,7 +67,8 @@ int main(int argc, char** argv)
     cube Y(3,3,nsubjects);
 
     imat idx_dti;
-    idx_dti.load("idx_dti_arma.mat",raw_ascii);
+    fs::path idx_name = "idx_dti_arma.mat";
+    idx_dti.load((shared_dir/idx_name).string(), raw_ascii);
     unsigned int nperms = idx_dti.n_rows;
 
     imat mask_job;
@@ -79,7 +88,7 @@ int main(int argc, char** argv)
     }
     if (!fs::exists(output_dir)){
         cout<< "Not exists " << output_dir << endl;
-        fs::create_directory(output_dir);
+        fs::create_directories(output_dir);
     }
     fs::path resname = "result.mat";
     ErrMx.save((output_dir/resname).string(),raw_ascii);
