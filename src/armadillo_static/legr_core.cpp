@@ -86,9 +86,11 @@ int main(int argc, char** argv)
     	//cout<<Y<<endl;
     	GR_legr_spd_perm(ErrMx, X, Y, idx_dti,ivoxel);
     }
-    if (!fs::exists(output_dir)){
-        cout<< "Not exists " << output_dir << endl;
-        fs::create_directories(output_dir);
+    if(output_dir.string().length() != 0){
+        if (!fs::exists(output_dir)){
+            cout<< "Not exists " << output_dir << endl;
+            fs::create_directories(output_dir);
+        }
     }
     fs::path resname = "result.mat";
     ErrMx.save((output_dir/resname).string(),raw_ascii);
