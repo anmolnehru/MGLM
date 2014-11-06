@@ -93,7 +93,7 @@ int main(int argc, char** argv)
         }
     }
     fs::path resname = "result.mat";
-    ErrMx.save((output_dir/resname).string(),raw_ascii);
+    ErrMx.save((output_dir/resname).string(),arma_binary);
     cout << "Output : "+ (output_dir/resname).string()<<endl;
   return 0;
 }
