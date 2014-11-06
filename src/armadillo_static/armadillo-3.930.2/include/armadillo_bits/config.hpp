@@ -71,6 +71,7 @@
 //// Note that ARMA_USE_U64S64 is automatically enabled when ARMA_64BIT_WORD or ARMA_USE_CXX11 are enabled
 #endif
 
+//#define ARMA_USE_HDF5
 #if !defined(ARMA_USE_HDF5)
 /* #undef ARMA_USE_HDF5 */
 //// Uncomment the above line if you want the ability to save and load matrices stored in the HDF5 format;
