@@ -92,7 +92,7 @@ int main(int argc, char** argv)
             fs::create_directories(output_dir);
         }
     }
-    fs::path resname = "result.mat";
+    fs::path resname = "result.bin";
     ErrMx.save((output_dir/resname).string(),arma_binary);
     cout << "Output : "+ (output_dir/resname).string()<<endl;
   return 0;
