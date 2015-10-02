@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 
 	// Let's consider binary file read and write later
     if(argc == 1){
-        printf("Usage: >> show_arma_mx filename.bin");
+        printf("Usage: >> show_arma_mx filename.bin\n");
         return 0;
     }
     char finname[SZBUF+1];
