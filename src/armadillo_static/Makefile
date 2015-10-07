@@ -10,3 +10,7 @@ test_armabin:
 	g++ -static test_armabin.cpp -o test_armabin -O2 liblapack.a librefblas.a -Iarmadillo-3.930.2/include/ -lgfortran -lpthread -lboost_system -lboost_filesystem
 armabinequaltotxt:
 	g++ -static armabinequaltotxt.cpp -o armabinequaltotxt -O2 liblapack.a librefblas.a -Iarmadillo-3.930.2/include/ -lgfortran -lpthread -lboost_system -lboost_filesystem
+
+clean:
+
+rm *.o *.BIN 
