@@ -35,7 +35,7 @@ int main(int argc, char** argv)
     fs::path output_dir;
     fs::path shared_dir;
 
-	// Let's consider binary file read and write later
+    // Let's consider binary file read and write later
     if(argc >= 2){
         input_dir = argv[1];
     }
@@ -67,14 +67,15 @@ int main(int argc, char** argv)
     cube Y(3,3,nsubjects);
 
     imat idx_dti;
-    fs::path idx_name = "idx_dti_arma.mat";
+    fs::path idx_name = "idx_perm_arma.mat";
     idx_dti.load((shared_dir/idx_name).string(), raw_ascii);
     unsigned int nperms = idx_dti.n_rows;
 
-    imat mask_job;
-    fs::path maskname = "mask_job_arma.mat";
-    mask_job.load((input_dir/maskname).string(),raw_ascii);
-    unsigned int nvoxels = mask_job.n_rows;
+//    imat mask_job;
+//    fs::path maskname = "mask_job_arma.mat";
+//    mask_job.load((input_dir/maskname).string(),raw_ascii);
+//    unsigned int nvoxels = mask_job.n_rows;
+    unsigned int nvoxels = Yv.n_rows/6;
 
 
     mat ErrMx(nvoxels, nperms);
