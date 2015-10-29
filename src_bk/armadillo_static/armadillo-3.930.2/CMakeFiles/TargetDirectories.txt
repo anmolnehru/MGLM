@@ -1,1 +1,0 @@
-/home/hyunwoo/legr_dti/armadillo-3.930.2/CMakeFiles/armadillo.dir

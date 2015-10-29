@@ -1,5 +1,0 @@
-armabinequaltotxt.cpp://   $ Hyunwoo J. Kim $  $ 2014/11/05 19:18:43 (CST) $
-legr_core.cpp:// Author      : Hyunwoo J. Kim
-armabin2asciifull.cpp:// Author      : Hyunwoo J. Kim
-test_armabin.cpp://   $ Hyunwoo J. Kim $  $ 2014/11/05 19:18:43 (CST) $
-show_arma_mx.cpp:// Author      : Hyunwoo J. Kim
