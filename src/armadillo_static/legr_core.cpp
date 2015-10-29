@@ -75,7 +75,7 @@ int main(int argc, char** argv)
     imat idx_dti;
     fs::path idx_name = "idx_dti_arma.mat";
     idx_dti.load((shared_dir/idx_name).string(), raw_ascii);
-    nsigned int nperms = idx_dti.n_rows;
+    unsigned int nperms = idx_dti.n_rows;
 
     imat mask_job;
     fs::path maskname = "mask_job_arma.mat";
@@ -83,13 +83,13 @@ int main(int argc, char** argv)
     unsigned int nvoxels = mask_job.n_rows;
 
 
-    mat ErrMx1(nvoxels, npGR_legr_spd_permerms);
+    mat ErrMx1(nvoxels, nperms);
     
-    mat ErrMx2(nvoxels, npGR_legr_spd_permerms);
+    mat ErrMx2(nvoxels, nperms);
 
 
-    ErrMrx1 = ErrMx1.zeros();
-    ErrMrx2 = ErrMx2.zeros();
+    mat ErrMx1 = ErrMx1.zeros(); //initialize
+    mat ErrMx2 = ErrMx2.zeros();
    
 
 	mat X_full=X;
@@ -106,25 +106,27 @@ int main(int argc, char** argv)
     }
 
 
-    mat ErrMxfinal = abs(ErrMx1-ErrMx2);
+    mat ErrMxfinal = abs(ErrMx1-ErrMx2); //difference/improvement in the errors
 
 
 //Anmol's changes
 
-	//get the ascii format of ErrMxfinal somehow
-	ErrMxfinal_ascii; //this is the asciied version, the 0th value should be the one being compared to
+	//get the ascii format of ErrMxfinal somehow, need to know ErrMxfinal format and convert to this
+	mat ErrMxfinal_ascii = ErrMxfinal; //this is the asciied version, the 0th value should be the one being compared to //TO DO
 
-    size_t length=nperms; //support for this?
-    float *p_value=(float*)malloc(nperms*sizeof(float)); //creates a p_value vector of type float for all voxels
+    size_t length=nperms;
+    float *p_value=(float*)malloc(nvoxels*sizeof(float)); //creates a p_value vector of type float for all voxels
+    size_t count=0;
 
     for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
+        count=0;
         while(length--)
             {
                 if(ErrMxfinal_ascii[ivoxel][length]>ErrMxfinal_ascii[ivoxel][0])
                 count++; //find out values greater than ref value
             }
 
-     p_value[ivoxel]= float(count/nperms)*100
+     p_value[ivoxel]= float(count/nperms)*100; //typecasting
 
     }   
 
