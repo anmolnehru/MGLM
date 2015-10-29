@@ -88,12 +88,13 @@ int main(int argc, char** argv)
     mat ErrMx2(nvoxels, nperms);
 
 
-    mat ErrMx1 = ErrMx1.zeros(); //initialize
-    mat ErrMx2 = ErrMx2.zeros();
+    ErrMx1 = ErrMx1.zeros(); //initialize
+    ErrMx2 = ErrMx2.zeros();
    
+    unsigned int num_cols = X.n_cols-1;
 
 	mat X_full=X;
-	mat X_part=X.shed_cols[n_cols-1]; 
+	mat X_part=X.shed_cols[num_cols];   //From API of arma
 
 
     // Extract one voxel and reshape
@@ -114,7 +115,7 @@ int main(int argc, char** argv)
 	//get the ascii format of ErrMxfinal somehow, need to know ErrMxfinal format and convert to this
 	mat ErrMxfinal_ascii = ErrMxfinal; //this is the asciied version, the 0th value should be the one being compared to //TO DO
 
-    size_t length=nperms;
+    int length=nperms;
     float *p_value=(float*)malloc(nvoxels*sizeof(float)); //creates a p_value vector of type float for all voxels
     size_t count=0;
 
