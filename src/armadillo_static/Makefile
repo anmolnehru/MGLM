@@ -15,4 +15,4 @@ armabinequaltotxt:
 
 clean:
 
-rm *.o *.BIN 
+	rm *.o *.BIN 
