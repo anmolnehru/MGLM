@@ -73,7 +73,7 @@ int main(int argc, char** argv)
     cube Y(3,3,nsubjects);
 
     imat idx_dti;
-    fs::path idx_name = "idx_dti_arma.mat";
+    fs::path idx_name = "idx_perm_arma.mat";
     idx_dti.load((shared_dir/idx_name).string(), raw_ascii);
     unsigned int nperms = idx_dti.n_rows;
 
@@ -93,8 +93,8 @@ int main(int argc, char** argv)
    
     unsigned int num_cols = X.n_cols-1;
 
-	mat X_full=X;
-	mat X_part=X.shed_cols[num_cols];   //From API of arma
+	//mat X_full=X;
+	//mat X_part=X.shed_cols(num_cols);   //From API of arma
 
 
     // Extract one voxel and reshape
@@ -102,18 +102,22 @@ int main(int argc, char** argv)
     for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
     	getY(Y,Yv,ivoxel);
     	//cout<<Y<<endl;
-    	GR_legr_spd_perm(ErrMx1, X_part, Y, idx_dti,ivoxel);
-    	GR_legr_spd_perm(ErrMx2, X_full, Y, idx_dti,ivoxel);
+    //	GR_legr_spd_perm(ErrMx1, X_part, Y, idx_dti,ivoxel);
+    //	GR_legr_spd_perm(ErrMx2, X_full, Y, idx_dti,ivoxel);
+
+        GR_legr_spd_perm(ErrMx1, X.cols(0,num_cols-1), Y, idx_dti,ivoxel);
+        GR_legr_spd_perm(ErrMx2, X, Y, idx_dti,ivoxel);
+    
     }
 
 
-    mat ErrMxfinal = abs(ErrMx1-ErrMx2); //difference/improvement in the errors
+    mat ErrMxfinal = ErrMx1-ErrMx2; //difference/improvement in the errors
 
 
 //Anmol's changes
 
 	//get the ascii format of ErrMxfinal somehow, need to know ErrMxfinal format and convert to this
-	mat ErrMxfinal_ascii = ErrMxfinal; //this is the asciied version, the 0th value should be the one being compared to //TO DO
+	//mat ErrMxfinal = ErrMxfinal; //this is the asciied version, the 0th value should be the one being compared to //TO DO
 
     int length=nperms;
     float *p_value=(float*)malloc(nvoxels*sizeof(float)); //creates a p_value vector of type float for all voxels
@@ -123,11 +127,11 @@ int main(int argc, char** argv)
         count=0;
         while(length--)
             {
-                if(ErrMxfinal_ascii[ivoxel][length]>ErrMxfinal_ascii[ivoxel][0])
-                count++; //find out values greater than ref value
+                if(ErrMxfinal(ivoxel,length)>ErrMxfinal(ivoxel,0)
+  )             count++; //find out values greater than ref value
             }
 
-     p_value[ivoxel]= float(count/nperms)*100; //typecasting
+     p_value[ivoxel]= float(count/nperms); //typecasting
 
     }   
 
