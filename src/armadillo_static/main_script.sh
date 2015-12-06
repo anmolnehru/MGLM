@@ -63,7 +63,7 @@ mv p_value.txt ~/PVALUE/20
 #Upon this job completion messages will come in and all pvalues should get accumulated
 #begin verficiation of p_values
 
-
+#verify by number of values and value < 1, can be done in the c++ file too; think about this
 verify(p_values)
 
 #will be interesting to see the various cases
