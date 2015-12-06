@@ -46,17 +46,18 @@ int main(int argc, char** argv)
 	// Let's consider binary file read and write later ?? ------------ What is this ask Hyunwoo
 
 
-//interesting-figure out why this is being done?
+    
+    //update:: no need of param 2(op_folder); only input and shared directory suffice. p_value just updated in current dir
     if(argc >= 2){
         input_dir = argv[1];
-    }
+    } /*
     if(argc >= 3){
         output_dir = argv[2];
     }else{
         output_dir = input_dir;
-    }
-    if(argc >= 4){
-        shared_dir = argv[3];
+    }*/
+    if(argc >= 3){
+        shared_dir = argv[2];
     }else{
         shared_dir = "./";
     }
@@ -70,17 +71,16 @@ int main(int argc, char** argv)
     X.load((shared_dir/Xname).string(), raw_ascii);  //load into the variable X
 
     fs::path cur_dir(fs::current_path());
-    cout << "Current directory : " << cur_dir <<endl;
+    //cout << "Current directory : " << cur_dir <<endl;
 
 
     fs::path Yname = "Ys_arma.mat";
-    cout << "Input : "+ (input_dir/Yname).string() <<endl;
+    //cout << "Input : "+ (input_dir/Yname).string() <<endl;
     Yv.load((input_dir/Yname).string(),raw_ascii); // load into vY
 
     // Convert into cube
     unsigned int nsubjects = Yv.n_cols;
 
-    //Could this be causing the issue?
     cube Y(3,3,nsubjects);
 
     imat idx_dti;
@@ -104,7 +104,7 @@ int main(int argc, char** argv)
 
 	//mat X_full=X;
 	//mat X_part=X.shed_cols(num_cols);   //From API of arma
-//cout<<X.row(0)<<endl;
+	//cout<<X.row(0)<<endl;
     // Extract one voxel and reshape
     unsigned int ivoxel;
 
@@ -113,26 +113,22 @@ int main(int argc, char** argv)
     	getY(Y,Yv,ivoxel);
 
 
-//----------------- Anmol Initial Modifications------------------//
-//cout<<X.cols(0,num_cols-1)<<endl; //some issue there
-//cout<<X<<endl;
-//	//system("PAUSE"); -- Windows only
-
-	//getchar();
-//----------------- Anmol Initial Modifications------------------//
-    	//cout<<Y<<endl;
-    //	GR_legr_spd_perm(ErrMx1, X_part, Y, idx_dti,ivoxel);
-    //	GR_legr_spd_perm(ErrMx2, X_full, Y, idx_dti,ivoxel);
-//----------------- Anmol Initial Modifications------------------//
-
-//simpler method //just pass truncated X when doing the func call
-
-//testing beginning -- Anmol  11/10
-
-
-
-
-	
+		//----------------- Anmol Initial Modifications------------------//
+		//cout<<X.cols(0,num_cols-1)<<endl; //some issue there
+		//cout<<X<<endl;
+		//	//system("PAUSE"); -- Windows only
+		
+			//getchar();
+		//----------------- Anmol Initial Modifications------------------//
+		    	//cout<<Y<<endl;
+		    //	GR_legr_spd_perm(ErrMx1, X_part, Y, idx_dti,ivoxel);
+		    //	GR_legr_spd_perm(ErrMx2, X_full, Y, idx_dti,ivoxel);
+		//----------------- Anmol Initial Modifications------------------//
+		
+		//simpler method //just pass truncated X when doing the func call
+		
+		//testing beginning -- Anmol  11/10
+        
         GR_legr_spd_perm(ErrMx1, X.row(0), Y, idx_dti,ivoxel);   //generalize this one
 
         GR_legr_spd_perm(ErrMx2, X, Y, idx_dti,ivoxel);
@@ -160,11 +156,7 @@ int main(int argc, char** argv)
 //	    	cout<<endl;
 //	}
 
-
-cout<<endl<<endl<<"PVALUES"<<endl;
-
 //should automatically spawn the right amount of threads
-////disabling the below in hope that the error will go away
 #pragma omp parallel for
     for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
         count=0;
@@ -197,7 +189,7 @@ cout<<endl<<endl<<"PVALUES"<<endl;
   if(fout.is_open())
     {
     //file opened successfully so we are here
-    cout << "File Opened successfully!!!. Writing data from p_value to file p_value.txt" << endl;
+    //cout << "File Opened successfully!!!. Writing data from p_value to file p_value.txt" << endl;
 		//this line below is incorrect, p_values are computed for a voxel and not over permutations
     //    for(int i = 0; i<nperms; i++)
         //this update should make it correct, however note that this cannot be parallelized, as values need be printed in seq
@@ -206,15 +198,15 @@ cout<<endl<<endl<<"PVALUES"<<endl;
             fout << p_value[i]; //writing ith character of p_value in the file
             fout <<",\n";
         }
-    cout << "p_value data successfully saved into the file p_value.txt" << endl;
+    //cout << "p_value data successfully saved into the file p_value.txt" << endl;
     }
     else //file could not be opened
     {
-        cout << "File could not be opened." << endl;
+      //  cout << "File could not be opened." << endl;
     }
 
 
-
+//We don't need output directory creation any more as we are simply able to write the p_value directly instead of the .bin intermediate
 /*
     if(output_dir.string().length() != 0){
         if (!fs::exists(output_dir)){

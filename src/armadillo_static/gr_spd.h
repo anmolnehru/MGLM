@@ -1,3 +1,5 @@
+//Anmol, 12/11
+
 #include <iostream>
 #include <armadillo>
 using namespace arma;
@@ -9,9 +11,12 @@ using namespace std;
  *  Explicit allocation need here.
  *  X is centered.
  */
+
+
 void GR_legr_spd_perm(mat& ErrMx, const mat& X, const cube& Y, const imat & idx_dti, unsigned ithvox){
 
 	unsigned int ndata = X.n_cols;
+	///cout<<ndata<<endl;
 	unsigned int nperms = idx_dti.n_rows;
 	unsigned int niter = 100;
 
@@ -19,7 +24,6 @@ void GR_legr_spd_perm(mat& ErrMx, const mat& X, const cube& Y, const imat & idx_
 
 	mat p(3,3);
 	karcher_mean_spd(p, Y, niter);
-
 	mat sqrtp = zeros<mat>(3,3);
 	mat invg = zeros<mat>(3,3);
 	mat g = zeros<mat>(3,3);

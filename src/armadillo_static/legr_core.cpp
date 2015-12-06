@@ -14,7 +14,7 @@
 #include <boost/filesystem.hpp> 
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
-
+//#include <omp.h>
 
 //These would be the main header files including all the 'meat'. Scramble these
 #include "spd_funcs.h"
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
     imat idx_dti;
     fs::path idx_name = "idx_perm_arma.mat";
     idx_dti.load((shared_dir/idx_name).string(), raw_ascii);
-    unsigned int nperms = idx_dti.n_rows;
+    float nperms = idx_dti.n_rows;
 
     imat mask_job;
     fs::path maskname = "mask_job_arma.mat";
@@ -100,29 +100,44 @@ int main(int argc, char** argv)
     ErrMx2 = ErrMx2.zeros();
    
     unsigned int num_cols = X.n_cols-1;
+    unsigned int num_rows = X.n_rows-1;
 
 	//mat X_full=X;
 	//mat X_part=X.shed_cols(num_cols);   //From API of arma
-
+//cout<<X.row(0)<<endl;
     // Extract one voxel and reshape
     unsigned int ivoxel;
+
+//#pragma omp parallel for
     for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
     	getY(Y,Yv,ivoxel);
+
+
+//----------------- Anmol Initial Modifications------------------//
+//cout<<X.cols(0,num_cols-1)<<endl; //some issue there
+//cout<<X<<endl;
+//	//system("PAUSE"); -- Windows only
+
+	//getchar();
+//----------------- Anmol Initial Modifications------------------//
     	//cout<<Y<<endl;
     //	GR_legr_spd_perm(ErrMx1, X_part, Y, idx_dti,ivoxel);
     //	GR_legr_spd_perm(ErrMx2, X_full, Y, idx_dti,ivoxel);
+//----------------- Anmol Initial Modifications------------------//
 
-	//simpler method //just pass truncated X when doing the func call
+//simpler method //just pass truncated X when doing the func call
 
-//testing beginning -- Anmol
+//testing beginning -- Anmol  11/10
+
+
+
+
 	
-//        GR_legr_spd_perm(ErrMx1[ivoxel], X.cols(0,num_cols-1), Y, idx_dti,ivoxel);
+        GR_legr_spd_perm(ErrMx1, X.row(0), Y, idx_dti,ivoxel);   //generalize this one
 
-        GR_legr_spd_perm(ErrMx2[ivoxel], X, Y, idx_dti,ivoxel);
+        GR_legr_spd_perm(ErrMx2, X, Y, idx_dti,ivoxel);
 	
-	ErrMx1=ErrMx2;    
     }
-
 
     mat ErrMxfinal = ErrMx1-ErrMx2; //difference/improvement in the errors
 
@@ -134,9 +149,23 @@ int main(int argc, char** argv)
 
     size_t length=0;//initializing length as a counter
     float *p_value=(float*)malloc(nvoxels*sizeof(float)); //creates a p_value vector of type float for all voxels
-    size_t count=0;
+    float count=0;
+
+//	cout<<endl<<"ErrMxfina"<<endl;
+
+//    for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
+//    	length=nperms;
+//    	while(length--)
+//    		cout<<ErrMxfinal(ivoxel,length)<<" ";
+//	    	cout<<endl;
+//	}
 
 
+cout<<endl<<endl<<"PVALUES"<<endl;
+
+//should automatically spawn the right amount of threads
+////disabling the below in hope that the error will go away
+//#pragma omp parallel for
     for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
         count=0;
     	length=nperms;
@@ -145,12 +174,22 @@ int main(int argc, char** argv)
                 if(ErrMxfinal(ivoxel,length)>ErrMxfinal(ivoxel,0))
 	             count++; //find out values greater than ref value
             }
+//		cout<<"count-"<<count<<" nperms-"<<nperms;
+    	p_value[ivoxel]= count/nperms; //typecasting
+    
 
-    	p_value[ivoxel]= float(count/nperms); //typecasting
+    	//introduce logic for early termination et al
+//    	cout<<":: p_value="<<p_value[ivoxel]<<endl;
     }   
 
 
     //Writing the p_value vector to a .txt file. Alternately armabinascii maybe used
+
+	//Checking if file exists and deletes it
+	
+	if( remove( "p_value.txt" ) == 0 ) //file exists
+	    perror( "File existed and has been cleaned up" );  //recheck if this actually removes the file?
+	else puts("Writing p_values to file");
 
     ofstream fout("p_value.txt"); //opening an output stream for file p_value.txt
     /*checking whether file could be opened or not. If file does not exist or don't have write permissions, file
@@ -159,10 +198,13 @@ int main(int argc, char** argv)
     {
     //file opened successfully so we are here
     cout << "File Opened successfully!!!. Writing data from p_value to file p_value.txt" << endl;
-
-        for(int i = 0; i<nperms; i++)
+		//this line below is incorrect, p_values are computed for a voxel and not over permutations
+    //    for(int i = 0; i<nperms; i++)
+        //this update should make it correct, however note that this cannot be parallelized, as values need be printed in seq
+	for(int i=0;i<nvoxels;i++)
         {
             fout << p_value[i]; //writing ith character of p_value in the file
+            fout <<",\n";
         }
     cout << "p_value data successfully saved into the file p_value.txt" << endl;
     }
