@@ -1,5 +1,7 @@
 all:
-	g++ -static legr_core.cpp -o legr_dti -O3 liblapack.a  librefblas.a -Iarmadillo-3.930.2/include/ -lgfortran -lpthread -lboost_filesystem -lboost_system
+	g++ -g -static legr_core.cpp -o legr_dti -O3 liblapack.a  librefblas.a -Iarmadillo-3.930.2/include/ -lgfortran -lpthread -lboost_filesystem -lboost_system
+multithread:
+	g++ -g -static legr_core_multi_thread.cpp -o legr_dti_parallel -fopenmp -O3 liblapack.a  librefblas.a -Iarmadillo-3.930.2/include/ -lgfortran -lpthread -lboost_filesystem -lboost_system
 mglm:
 	g++ -static legr_core.cpp -o mglm_dti -O3 liblapack.a  librefblas.a -Iarmadillo-3.930.2/include/ -lgfortran -lpthread -lboost_filesystem -lboost_system
 armabin:

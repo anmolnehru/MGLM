@@ -12,9 +12,11 @@ using namespace std;
 
 #ifndef SPD_FUNCS_H_
 #define SPD_FUNCS_H_
+
 /*
  * get_g_invg is the common part in logarithm map and exponential map related functions.
  */
+
 void get_g_invg(mat& g, mat& invg, const mat &p){
     vec d;
     mat U;
