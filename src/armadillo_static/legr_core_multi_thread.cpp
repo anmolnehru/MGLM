@@ -16,7 +16,6 @@
 #include <boost/filesystem/path.hpp>
 #include <omp.h>
 
-//These would be the main header files including all the 'meat'. Scramble these
 #include "spd_funcs.h"
 #include "gr_spd.h"
 
@@ -199,11 +198,19 @@ int main(int argc, char** argv)
             fout <<",\n";
         }
     //cout << "p_value data successfully saved into the file p_value.txt" << endl;
+	//data writes would have succesfully happened
+	//close the file now
+	fout.close();
+	return 1; //success
     }
+
+  
     else //file could not be opened
     {
-      //  cout << "File could not be opened." << endl;
+        cout << "File could not be opened." << endl;
     }
+
+   
 
 
 //We don't need output directory creation any more as we are simply able to write the p_value directly instead of the .bin intermediate
