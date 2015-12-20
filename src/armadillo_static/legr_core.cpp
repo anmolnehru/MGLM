@@ -49,14 +49,7 @@ int main(int argc, char** argv)
 //interesting-figure out why this is being done?
     if(argc >= 2){
         input_dir = argv[1];
-    }
-    if(argc >= 3){
-        output_dir = argv[2];
-    }else{
-        output_dir = input_dir;
-    }
-    if(argc >= 4){
-        shared_dir = argv[3];
+        shared_dir = argv[2];
     }else{
         shared_dir = "./";
     }
@@ -70,11 +63,11 @@ int main(int argc, char** argv)
     X.load((shared_dir/Xname).string(), raw_ascii);  //load into the variable X
 
     fs::path cur_dir(fs::current_path());
-    cout << "Current directory : " << cur_dir <<endl;
+    //cout << "Current directory : " << cur_dir <<endl;
 
 
     fs::path Yname = "Ys_arma.mat";
-    cout << "Input : "+ (input_dir/Yname).string() <<endl;
+   // cout << "Input : "+ (input_dir/Yname).string() <<endl;
     Yv.load((input_dir/Yname).string(),raw_ascii); // load into vY
 
     // Convert into cube
@@ -107,8 +100,7 @@ int main(int argc, char** argv)
 //cout<<X.row(0)<<endl;
     // Extract one voxel and reshape
     unsigned int ivoxel;
-
-//#pragma omp parallel for
+/*
     for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
     	getY(Y,Yv,ivoxel);
 
@@ -138,7 +130,7 @@ int main(int argc, char** argv)
         GR_legr_spd_perm(ErrMx2, X, Y, idx_dti,ivoxel);
 	
     }
-
+*/
     mat ErrMxfinal = ErrMx1-ErrMx2; //difference/improvement in the errors
 
 
@@ -161,11 +153,8 @@ int main(int argc, char** argv)
 //	}
 
 
-cout<<endl<<endl<<"PVALUES"<<endl;
+//cout<<endl<<endl<<"PVALUES"<<endl;
 
-//should automatically spawn the right amount of threads
-////disabling the below in hope that the error will go away
-//#pragma omp parallel for
     for(ivoxel = 0; ivoxel < nvoxels; ivoxel++){
         count=0;
     	length=nperms;
@@ -197,7 +186,7 @@ cout<<endl<<endl<<"PVALUES"<<endl;
   if(fout.is_open())
     {
     //file opened successfully so we are here
-    cout << "File Opened successfully!!!. Writing data from p_value to file p_value.txt" << endl;
+    //cout << "File Opened successfully!!!. Writing data from p_value to file p_value.txt" << endl;
 		//this line below is incorrect, p_values are computed for a voxel and not over permutations
     //    for(int i = 0; i<nperms; i++)
         //this update should make it correct, however note that this cannot be parallelized, as values need be printed in seq
@@ -206,7 +195,7 @@ cout<<endl<<endl<<"PVALUES"<<endl;
             fout << p_value[i]; //writing ith character of p_value in the file
             fout <<",\n";
         }
-    cout << "p_value data successfully saved into the file p_value.txt" << endl;
+    //cout << "p_value data successfully saved into the file p_value.txt" << endl;
     }
     else //file could not be opened
     {
